@@ -1,12 +1,11 @@
 import React from "react";
+import styles from "../styles/styles";
 
 function Testimonials() {
   return (
     <div>
       <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-gray-200 sm:text-5xl">
-          Reviews from our customers
-        </h2>
+        <h2 className={`${styles.headerText}`}>Reviews from our users</h2>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
           <blockquote className="rounded-xl bg-gray-200 p-6 shadow-sm sm:p-8">
