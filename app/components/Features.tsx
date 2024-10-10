@@ -30,7 +30,7 @@ function Features() {
                     className="flex items-center gap-2.5 md:gap-3.5"
                     key={index}
                   >
-                    <p className="text-white text-sm md:text-xl font-semibold">
+                    <p className="text-gray-600 dark:text-white text-sm md:text-xl font-semibold">
                       {item.content}
                     </p>
                   </div>
@@ -42,7 +42,7 @@ function Features() {
       </section>
 
       <div className="border-t border-b border-borderlinecolor my-10 py-10">
-        <h1 className="text-center text-white font-bold text-lg md:text-3xl max-w-screen-lg mx-auto mt-10">
+        <h1 className="text-center text-secondary dark:text-white font-bold text-lg md:text-3xl max-w-screen-lg mx-auto mt-10">
           Kenoty Scanner dives deep into your website, revealing critical data
           that transforms your site’s performance.
         </h1>
@@ -84,7 +84,7 @@ function Features() {
                         className="size-9 md:size-8"
                       />
                     </div>
-                    <p className="text-white text-sm md:text-lg font-medium">
+                    <p className="text-gray-600 dark:text-white text-sm md:text-lg font-medium">
                       {item.content}
                     </p>
                   </div>

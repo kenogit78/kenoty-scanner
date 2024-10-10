@@ -10,7 +10,7 @@ function TabsFeature() {
       case "Instant Website Review":
         return (
           <div>
-            <p className="text-gray-300 text-base md:text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg">
               {" "}
               Get expert feedback on your website, instantly Score My website
               scores your website on key criteria, Submit your website url and
@@ -22,7 +22,7 @@ function TabsFeature() {
       case "Website Samples":
         return (
           <div>
-            <p className="text-gray-300 text-base md:text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg">
               Get Inspired by Top Website Designs Discover examples of
               successful websites that captivate users and drive results. Our
               collection showcases the best practices in design, functionality,
@@ -36,7 +36,7 @@ function TabsFeature() {
       case "Website Targeting":
         return (
           <div>
-            <p className="text-gray-300 text-base md:text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg">
               Target Your Website for Maximum Impact, Instantly, Our free
               AI-powered platform analyzes your website&apos;s content and
               structure, identifying key areas for improvement. Learn how to
@@ -49,7 +49,7 @@ function TabsFeature() {
       case "Website Optimization":
         return (
           <div>
-            <p className="text-gray-300 text-base md:text-lg">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg">
               Get Found by the Right Audience Online, Receive instant,
               personalized feedback on how to optimize your website, for free.
               Boost your visibility and attract 5x more visitors, leads, and
@@ -63,7 +63,7 @@ function TabsFeature() {
   };
 
   return (
-    <div className="mx-auto max-w-screen-2xl px-8 md:px-5 my-20 border-t border-b border-borderlinecolor">
+    <div className="mx-auto max-w-screen-2xl px-8 md:px-5 my-20 border-t border-b border-gray-300 dark:border-borderlinecolor">
       <section className="mt-16">
         <h1 className={`${styles.headerText} max-w-screen-lg mx-auto`}>
           Your personal website review platform
@@ -96,8 +96,8 @@ function TabsFeature() {
               <div
                 className={`shrink-0 rounded-2xl p-2.5 text-sm font-medium cursor-pointer ${
                   activeTab === "Instant Website Review"
-                    ? "bg-borderlinecolor text-white font-semibold"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                    ? "bg-primary text-white font-semibold"
+                    : "text-gray-500 bg-gray-100 dark:bg-secondary hover:bg-gray-50 hover:text-gray-700"
                 }`}
                 onClick={() => setActiveTab("Instant Website Review")}
               >
@@ -107,8 +107,8 @@ function TabsFeature() {
               <div
                 className={`shrink-0 rounded-2xl p-2.5 text-sm font-medium cursor-pointer ${
                   activeTab === "Website Samples"
-                    ? "bg-borderlinecolor text-white font-semibold"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                    ? "bg-primary text-white font-semibold"
+                    : "text-gray-500 bg-gray-100 dark:bg-secondary hover:bg-gray-50 hover:text-gray-700"
                 }`}
                 onClick={() => setActiveTab("Website Samples")}
               >
@@ -118,8 +118,8 @@ function TabsFeature() {
               <div
                 className={`shrink-0 rounded-2xl p-2.5 text-sm font-medium cursor-pointer ${
                   activeTab === "Website Targeting"
-                    ? "bg-borderlinecolor text-white font-semibold"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                    ? "bg-primary text-white font-semibold"
+                    : "text-gray-500 bg-gray-100 dark:bg-secondary hover:bg-gray-50 hover:text-gray-700"
                 }`}
                 onClick={() => setActiveTab("Website Targeting")}
               >
@@ -129,8 +129,8 @@ function TabsFeature() {
               <div
                 className={`shrink-0 rounded-2xl p-2.5 text-sm font-medium cursor-pointer ${
                   activeTab === "Website Optimization"
-                    ? "bg-borderlinecolor text-white font-semibold"
-                    : "text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                    ? "bg-primary text-white font-semibold"
+                    : "text-gray-500 bg-gray-100 dark:bg-secondary hover:bg-gray-50 hover:text-gray-700"
                 }`}
                 onClick={() => setActiveTab("Website Optimization")}
               >

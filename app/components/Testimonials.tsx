@@ -8,7 +8,7 @@ function Testimonials() {
         <h2 className={`${styles.headerText}`}>Reviews from our users</h2>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          <blockquote className="rounded-xl bg-gray-200 p-6 shadow-sm sm:p-8">
+          <blockquote className="rounded-xl bg-gray-50 p-6 shadow-sm sm:p-8">
             <div className="flex items-center gap-4">
               <img
                 alt=""
