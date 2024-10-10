@@ -6,7 +6,7 @@ import styles from "../styles/styles";
 function Features() {
   return (
     <div className="mx-auto max-w-screen-2xl px-8 md:px-5 my-10">
-      <section className="mt-20">
+      <section className="mt-28">
         <h1 className={`${styles.headerText} max-w-screen-lg mx-auto`}>
           What if just one scan could unlock your website&apos;s hidden
           potential?{" "}
