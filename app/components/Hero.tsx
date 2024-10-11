@@ -6,11 +6,11 @@ function Hero() {
     <div>
       <div className="p-8 md:p-12 lg:px-16 mt-6">
         <div className="mx-auto max-w-xl text-center">
-          <h1 className="text-3xl max-w-xl mx-auto font-extrabold text-white md:text-6xl">
+          <h1 className="text-3xl max-w-xl mx-auto font-extrabold text-primary dark:text-white md:text-6xl">
             Attention Website Owners!
           </h1>
 
-          <p className="h text-gray-200 mt-9">
+          <p className="text-gray-700 dark:text-gray-200 mt-9">
             Are you sure your website is performing at its best? Unlock the Full
             Potential of Your Website with Kenoty Scanner
           </p>
@@ -26,8 +26,8 @@ function Hero() {
               <input
                 type="email"
                 placeholder="Enter your email here and we’ll send you some magic"
-                className="w-full rounded-3xl border-gray-200 bg-white p-3 pr-32 text-gray-700 shadow-sm 
-        transition focus:border-white focus:outline-none focus:ring focus:ring-primary"
+                className="w-full rounded-3xl border-2 border-gray-200 dark:border-gray-200 bg-white p-3 pr-32
+                 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-primary"
               />
 
               <button

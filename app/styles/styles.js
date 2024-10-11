@@ -2,7 +2,7 @@ const styles = {
   heroHeading:
     "font-bold text-3xl md:text-[50px] md:leading-[4.2rem] text-primary dark:text-white",
   headerText:
-    "text-center text-white font-bold text-lg md:text-3xl max-w-screen-lg mx-auto",
+    "text-center text-gray-600 dark:text-white font-bold text-lg md:text-3xl max-w-screen-lg mx-auto",
   headerparagraph:
     "text-gray-500 dark:text-gray-400 text-sm md:text-base mt-2 md:mt-4",
   subheading:

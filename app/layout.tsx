@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./styles/globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import ClientLayout from "./components/RootLayoutClient";
 
 const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 
@@ -13,17 +12,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
         className={`${barlow.className} antialiased bg-white dark:bg-secondary`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
