@@ -43,6 +43,20 @@ const Sidebar: React.FC<SidebarProps> = ({
     }
   };
 
+  const isActive = (href: string) => {
+    if (href === "/score" && pathname.startsWith("/score")) {
+      return true;
+    }
+    return pathname === href;
+  };
+
+  const navigationItems = [
+    { href: "/home", icon: LayoutDashboard, text: "Overview" },
+    { href: "/score", icon: MonitorCog, text: "Score my website" },
+    { href: "/review", icon: ScanSearch, text: "Review my website" },
+    { href: "/help", icon: CircleHelp, text: "Help center" },
+  ];
+
   return (
     <div>
       <div
@@ -68,22 +82,17 @@ const Sidebar: React.FC<SidebarProps> = ({
           </Link>
 
           <ul className="mt-4 space-y-3 px-4 py-6">
-            {[
-              { href: "/home", icon: LayoutDashboard, text: "Overview" },
-              { href: "/score", icon: MonitorCog, text: "Score my website" },
-              { href: "/review", icon: ScanSearch, text: "Review my website" },
-              { href: "/help", icon: CircleHelp, text: "Help center" },
-            ].map((item) => (
+            {navigationItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={handleClick}
                   className={`rounded-lg px-4 py-2.5 text-sm flex items-center gap-2
-                    font-medium ${
-                      pathname === item.href
-                        ? "bg-primary dark:text-white text-white"
-                        : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700"
-                    }`}
+              font-medium ${
+                isActive(item.href)
+                  ? "bg-primary dark:text-white text-white"
+                  : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700"
+              }`}
                 >
                   <item.icon size={18} /> {item.text}
                 </Link>
