@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow } from "next/font/google";
 import "./styles/globals.css";
 import ClientLayout from "./components/RootLayoutClient";
+import { ThemeProvider } from "next-themes";
 
 const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 
@@ -18,7 +19,14 @@ export default function RootLayout({
       <body
         className={`${barlow.className} antialiased bg-white dark:bg-secondary`}
       >
-        <ClientLayout>{children}</ClientLayout>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,69 +1,109 @@
+"use client";
+import React, { useEffect } from "react";
 import {
-  ChartColumn,
   CircleHelp,
   CircleUser,
   LayoutDashboard,
+  MonitorCog,
   ScanSearch,
   Settings,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-function Sidebar() {
+interface SidebarProps {
+  openNavigation: boolean;
+  toggleNavigation: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({
+  openNavigation,
+  toggleNavigation,
+}) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openNavigation && !(event.target as Element).closest(".side-nav")) {
+        toggleNavigation();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [openNavigation, toggleNavigation]);
+
+  const handleClick = () => {
+    if (openNavigation) {
+      toggleNavigation();
+    }
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/score" && pathname.startsWith("/score")) {
+      return true;
+    }
+    return pathname === href;
+  };
+
+  const navigationItems = [
+    { href: "/home", icon: LayoutDashboard, text: "Overview" },
+    { href: "/score", icon: MonitorCog, text: "Score my website" },
+    { href: "/review", icon: ScanSearch, text: "Review my website" },
+    { href: "/help", icon: CircleHelp, text: "Help center" },
+  ];
+
   return (
     <div>
-      <div className="flex h-screen flex-col justify-between border-e border-borderlinecolor bg-white dark:bg-tertiary">
+      <div
+        className={`side-nav ${
+          openNavigation ? "flex" : "hidden md:flex"
+        } h-screen w-[16rem] md:w-full flex-col justify-between border-e border-lighmodeborder dark:border-borderlinecolor bg-white dark:bg-tertiary z-50`}
+      >
         <div>
-          <span
-            className="mt-6 grid h-14 w-[100%] place-content-center dark:bg-primary
-           bg-gray-100 text-gray-600 dark:text-white font-bold text-base tracking-wider"
+          <Link
+            onClick={handleClick}
+            href="/home"
+            className="mt-2 w-[100%] place-content-center 
+            text-secondary dark:text-white font-bold text-sm tracking-wider flex items-center gap-2 py-6 border-b border-lighmodeborder dark:border-borderlinecolor"
           >
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={100}
+              height={100}
+              className="size-10"
+            />
             Kenoty Scanner
-          </span>
+          </Link>
 
-          <ul className="mt-6 space-y-3 px-4 py-6">
-            <li>
-              <Link
-                href="/home"
-                className="rounded-lg bg-borderlinecolor px-4 py-2.5 text-sm flex items-center gap-2
-                font-medium dark:text-white text-gray-700"
-              >
-                <LayoutDashboard size={18} /> Overview
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="score"
-                className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700"
-              >
-                <ChartColumn size={18} /> Score my website
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="review"
-                className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700"
-              >
-                <ScanSearch size={18} /> Review my website
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="#"
-                className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700"
-              >
-                <CircleHelp size={18} /> Help center
-              </Link>
-            </li>
+          <ul className="mt-4 space-y-3 px-4 py-6">
+            {navigationItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={handleClick}
+                  className={`rounded-lg px-4 py-2.5 text-sm flex items-center gap-2
+              font-medium ${
+                isActive(item.href)
+                  ? "bg-primary dark:text-white text-white"
+                  : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700"
+              }`}
+                >
+                  <item.icon size={18} /> {item.text}
+                </Link>
+              </li>
+            ))}
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700">
+                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700">
                   <span className="text-sm font-medium flex items-center gap-2">
-                    {" "}
-                    <Settings size={18} /> Account{" "}
+                    <Settings size={18} /> Account
                   </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -108,21 +148,18 @@ function Sidebar() {
           </ul>
         </div>
 
-        <div className="sticky inset-x-0 bottom-0 border-t border-borderlinecolor">
+        <div className="sticky inset-x-0 bottom-0 border-t border-lighmodeborder dark:border-borderlinecolor">
           <a
             href="#"
-            className="flex items-center gap-2 bg-white dark:bg-tertiary p-4 hover:bg-secondary"
+            className="flex items-center gap-2 bg-white dark:bg-tertiary p-4 dark:hover:bg-secondary"
           >
-            <CircleUser size={40} className="text-white" />
+            <CircleUser size={40} className="text-tertiary dark:text-white" />
 
             <div>
               <p className="text-sm dark:text-gray-200">
                 <strong className="block font-medium">Abdulrazaq Salihu</strong>
 
-                <span className="dark:text-gray-400">
-                  {" "}
-                  abdulrazaq@gmail.com{" "}
-                </span>
+                <span className="dark:text-gray-400">abdulrazaq@gmail.com</span>
               </p>
             </div>
           </a>
@@ -130,6 +167,6 @@ function Sidebar() {
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;
