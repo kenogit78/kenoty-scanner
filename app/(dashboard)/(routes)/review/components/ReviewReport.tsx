@@ -26,34 +26,34 @@ const Report: React.FC<ReportProps> = ({ onSelectItem }) => {
     {
       icon: <Component />,
       largeicon: <Component size={60} />,
-      title: "Design & Usability",
-      desc: "Evaluates the visual appeal and ease of navigation on the site.",
+      title: "User Experience & Interface",
+      desc: "An immersive and user-friendly interface that could be refined for better accessibility.",
       details:
-        "Your website scored 90/100 on design and usability. It has a modern interface but could improve accessibility for visually impaired users.",
+        "Your platform earned a score of 88/100 for its user experience. While the interface is sleek and engaging, improving features for users with disabilities, such as enhancing keyboard navigation and screen reader support, will boost inclusivity and overall usability.",
     },
     {
       icon: <CircleGauge />,
       largeicon: <CircleGauge size={60} />,
-      title: "Performance",
-      desc: "Measures load time, responsiveness, and overall speed.",
+      title: "Site Speed & Optimization",
+      desc: "Quick response times, but some elements could be optimized further for peak performance.",
       details:
-        "Your website scored 85/100 in performance. Optimizing images and minimizing JavaScript files can help improve load speed.",
+        "Scoring 80/100 in performance, your site loads swiftly under typical conditions. However, the performance drops when handling larger media files and scripts. Image compression and code minification would reduce load times, improving the user experience on slower connections.",
     },
     {
       icon: <BadgeInfo />,
       largeicon: <BadgeInfo size={60} />,
-      title: "SEO & Accessibility",
-      desc: "Checks how well the website is optimized for search engines and accessible to all users.",
+      title: "Search Visibility & Compliance",
+      desc: "Good visibility on search engines but room for improvement in mobile-friendliness.",
       details:
-        "Your website scored 92/100 for SEO and Accessibility. While meta tags and alt text are in place, consider improving mobile experience for better search rankings.",
+        "With a score of 91/100, your website is well-positioned for search engines. It benefits from well-structured metadata and responsive design. Enhancing mobile compatibility further could make it more favorable for search rankings, especially in mobile-first indexing algorithms.",
     },
     {
       icon: <ShieldCheck />,
       largeicon: <ShieldCheck size={60} />,
-      title: "Security",
-      desc: "Assesses the website's protection against vulnerabilities and potential threats.",
+      title: "Security & Data Protection",
+      desc: "Strong security framework, though proactive updates are required to maintain safety.",
       details:
-        "Your website scored 88/100 in security. Implementing HTTPS and ensuring regular updates to software components can further enhance security.",
+        "Your website achieved 86/100 in security, reflecting a good standard of data protection. Adopting more rigorous HTTPS implementation and consistently updating third-party libraries will provide a stronger shield against vulnerabilities and ensure compliance with the latest security protocols.",
     },
   ];
 
@@ -68,7 +68,7 @@ const Report: React.FC<ReportProps> = ({ onSelectItem }) => {
         <div className="max-w-lg mx-auto text-gray-600">
           <div className="space-y-4 text-center">
             <h3 className="text-secondary dark:text-gray-300 font-semibold text-sm md:text-base">
-              Website Score Report
+              Website review Report
             </h3>
             <div className="flex items-center justify-center w-[6rem] h-[6rem] md:w-[7rem] md:h-[7rem] rounded-full border-4 border-primary mx-auto">
               <p className="text-primary text-lg font-semibold sm:text-2xl">

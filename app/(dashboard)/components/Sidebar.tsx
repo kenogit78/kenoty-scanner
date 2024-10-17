@@ -47,6 +47,10 @@ const Sidebar: React.FC<SidebarProps> = ({
     if (href === "/score" && pathname.startsWith("/score")) {
       return true;
     }
+
+    if (href === "/review" && pathname.startsWith("/review")) {
+      return true;
+    }
     return pathname === href;
   };
 

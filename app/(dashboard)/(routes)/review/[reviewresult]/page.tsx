@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Report from "../components/Report";
+import Report from "../components/ReviewReport";
 import { PanelTopDashed } from "lucide-react";
 
 interface CriterionItem {
@@ -22,7 +22,7 @@ const Page: React.FC = () => {
   return (
     <div className="mx-auto px-4 md:px-14 py-14">
       <h1 className="text-secondary dark:text-white text-2xl font-semibold tracking-wide">
-        Full Scan report
+        Full Review report
       </h1>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 mt-10 border-t border-b border-lighmodeborder dark:border-borderlinecolor rounded-xl">
         <div className="rounded-lg md:border-r border-lighmodeborder dark:border-borderlinecolor">
