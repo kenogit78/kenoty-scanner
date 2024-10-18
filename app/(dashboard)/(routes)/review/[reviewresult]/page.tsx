@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Report from "../components/ReviewReport";
 import { PanelTopDashed } from "lucide-react";
+import Loader from "../components/Loader";
 
 interface CriterionItem {
   icon: React.ReactNode;
@@ -14,10 +15,27 @@ interface CriterionItem {
 
 const Page: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<CriterionItem | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 9000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSelectItem = (item: CriterionItem) => {
     setSelectedItem(item);
   };
+
+  if (isLoading) {
+    return (
+      <div className="mx-auto px-4 py-32">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto px-4 md:px-14 py-14">
