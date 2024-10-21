@@ -105,7 +105,13 @@ const Sidebar: React.FC<SidebarProps> = ({
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700">
+                <summary
+                  className={`rounded-lg px-4 py-2.5 text-sm flex items-center justify-between gap-2 cursor-pointer ${
+                    pathname === "/settings"
+                      ? "bg-primary dark:text-white text-white"
+                      : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700"
+                  }`}
+                >
                   <span className="text-sm font-medium flex items-center gap-2">
                     <Settings size={18} /> Account
                   </span>
@@ -128,12 +134,12 @@ const Sidebar: React.FC<SidebarProps> = ({
 
                 <ul className="mt-2 space-y-1 px-4">
                   <li>
-                    <a
-                      href="#"
+                    <Link
+                      href="/settings"
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
-                      Security
-                    </a>
+                      Settings
+                    </Link>
                   </li>
 
                   <li>

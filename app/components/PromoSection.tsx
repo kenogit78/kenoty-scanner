@@ -2,6 +2,7 @@ import React from "react";
 import { CircleCheck } from "lucide-react";
 import { benefitsList } from "../constants/ContentConstant";
 import Image from "next/image";
+import Link from "next/link";
 
 function PromoSection() {
   return (
@@ -74,9 +75,14 @@ function PromoSection() {
             winning today!
           </p>
         </div> */}
-        <button className="bg-primary p-3 px-14 rounded-md text-white font-semibold flex mx-auto text-center my-20">
-          Get Started
-        </button>
+        <div className="mx-auto flex">
+          <Link
+            href="/home"
+            className="bg-primary p-3 px-12 rounded-md text-white mx-auto text-center font-semibold my-20 inline-block"
+          >
+            Get Started
+          </Link>
+        </div>
       </section>
     </div>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { benefits, improvementList } from "../constants/ContentConstant";
 import styles from "../styles/styles";
+import Link from "next/link";
 
 function Features() {
   return (
@@ -51,9 +52,14 @@ function Features() {
           In just seconds, you’ll have a powerful report with clear action steps
           to fix what’s broken and accelerate what’s working.
         </p>
-        <button className="bg-primary p-3 px-10 rounded-md text-white font-semibold flex mx-auto text-center">
-          Get Started
-        </button>
+        <div className="mx-auto flex">
+          <Link
+            href="/home"
+            className="bg-primary p-3 px-10 rounded-md text-white mx-auto text-center font-semibold my-5 inline-block"
+          >
+            Get Started
+          </Link>
+        </div>
       </div>
 
       <section className="mt-24">

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/app/styles/styles";
+import Link from "next/link";
 
 function Cta() {
   return (
@@ -14,9 +15,14 @@ function Cta() {
           card, no commitments — just results.
         </p>
 
-        <button className="bg-primary p-3 px-10 rounded-md text-white flex mx-auto text-center font-semibold my-12">
-          Get Started
-        </button>
+        <div className="mx-auto flex">
+          <Link
+            href="/home"
+            className="bg-primary p-3 px-10 rounded-md text-white mx-auto text-center font-semibold my-12 inline-block"
+          >
+            Get Started
+          </Link>
+        </div>
 
         <p className="text-center text-gray-700 dark:text-white font-semibold text-base md:text-xl max-w-screen-md mx-auto">
           Limited Time Only: <br />

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../styles/styles";
+import Link from "next/link";
 
 function TabsFeature() {
   const [activeTab, setActiveTab] = useState("Instant Website Review");
@@ -141,9 +142,14 @@ function TabsFeature() {
 
           <div className="mt-10">{renderContent()}</div>
 
-          <button className="bg-primary p-3 px-10 rounded-md text-white flex mx-auto text-center font-semibold my-10 mt-20">
-            Get Started
-          </button>
+          <div className="mx-auto flex">
+            <Link
+              href="/home"
+              className="bg-primary p-3 px-10 rounded-md text-white mx-auto text-center font-semibold my-10 mt-20 inline-block"
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </section>
     </div>
