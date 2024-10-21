@@ -1,6 +1,7 @@
 import React from "react";
 import { CircleCheck } from "lucide-react";
 import { benefitsList } from "../constants/ContentConstant";
+import Image from "next/image";
 
 function PromoSection() {
   return (
@@ -10,9 +11,18 @@ function PromoSection() {
           Here’s what you get
         </h1>
 
-        <div className="flex flex-col lg:flex-row items-center gap-14 md:gap-0 mt-6">
+        <div className="flex flex-col lg:flex-row items-center gap-14 md:gap-0 mt-16">
           <div className="flex-1">
-            <div className="space-y-8 md:p-12 md:px-14">
+            <Image
+              src="/overview.svg"
+              alt={"overview"}
+              width={100}
+              height={100}
+              className="w-[100%] md:w-[65%] mx-auto"
+            />
+          </div>
+          <div className="flex-1">
+            <div className="space-y-8 md:p-12 md:px-14 md:ml-24">
               <div className="flex flex-col gap-10">
                 {benefitsList.map((item, index) => (
                   <div
@@ -30,7 +40,7 @@ function PromoSection() {
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <h1 className="text-center text-gray-600 dark:text-white font-bold text-lg md:text-3xl max-w-screen-lg mx-auto">
             ALL FROM ONE SIMPLE SCAN.
           </h1>
@@ -63,10 +73,10 @@ function PromoSection() {
             and security, all from one easy-to-use tool. Stop guessing—start
             winning today!
           </p>
-          <button className="bg-primary p-3 px-14 rounded-md text-white font-semibold flex mx-auto text-center my-12">
-            Get Started
-          </button>
-        </div>
+        </div> */}
+        <button className="bg-primary p-3 px-14 rounded-md text-white font-semibold flex mx-auto text-center my-20">
+          Get Started
+        </button>
       </section>
     </div>
   );
