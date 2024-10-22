@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Report from "../components/ReviewReport";
 import { PanelTopDashed } from "lucide-react";
-import Loader from "../components/Loader";
+import Loader from "@/app/(dashboard)/components/Loader";
 
 interface CriterionItem {
   icon: React.ReactNode;
@@ -20,7 +20,7 @@ const Page: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 9000);
+    }, 18000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -31,7 +31,7 @@ const Page: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="mx-auto px-4 py-32">
+      <div className="mx-auto px-4 py-20 md:py-32">
         <Loader />
       </div>
     );
