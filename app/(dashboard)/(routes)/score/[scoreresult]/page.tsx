@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Report from "../components/Report";
 import { PanelTopDashed } from "lucide-react";
+import Loader from "../../../components/Loader";
 
 interface CriterionItem {
   icon: React.ReactNode;
@@ -18,7 +19,7 @@ const Page: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 9000);
+    }, 18000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -29,18 +30,8 @@ const Page: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="mx-auto px-4 md:px-14 py-14">
-        <div className="terminal-loader">
-          <div className="terminal-header">
-            <div className="terminal-title">Status</div>
-            <div className="terminal-controls">
-              <div className="control close"></div>
-              <div className="control minimize"></div>
-              <div className="control maximize"></div>
-            </div>
-          </div>
-          <div className="text">Loading...</div>
-        </div>
+      <div className="mx-auto px-4 py-20 md:py-32">
+        <Loader />
       </div>
     );
   }
