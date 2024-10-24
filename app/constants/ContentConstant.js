@@ -5,12 +5,12 @@ export const footerLinks = [
     title: "Home",
   },
   {
-    id: "/services",
-    title: "Services",
+    id: "/score",
+    title: "Score",
   },
   {
-    id: "/about",
-    title: "About",
+    id: "/review",
+    title: "Review",
   },
   {
     id: "/careers",

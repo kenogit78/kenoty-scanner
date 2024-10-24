@@ -12,7 +12,7 @@ function ThemeToggle() {
   console.log(theme);
   if (!mounted) return null;
   return (
-    <div className="md:-mt-1.5">
+    <div className="md:-mt-1.5 hidden md:block">
       <label className="switch md:mr-5">
         <span className="sun">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

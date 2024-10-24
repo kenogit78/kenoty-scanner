@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { AlignJustify, BadgeHelp, CircleUserRound } from "lucide-react";
+import { AlignJustify, BadgeHelp } from "lucide-react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 interface HeaderProps {
   toggleNavigation: () => void;
@@ -38,12 +39,11 @@ const Header: React.FC<HeaderProps> = ({
       </Link>
 
       <ThemeToggle />
-      <a
-        href=""
-        target="_blank"
+      <Link
+        href="/help"
         rel="noopener noreferrer"
         aria-label="WhatsApp Profile"
-        className="mr-8 hidden md:block"
+        className="mr-5 hidden md:block"
       >
         <BadgeHelp
           size={22}
@@ -51,11 +51,8 @@ const Header: React.FC<HeaderProps> = ({
           className="text-secondary dark:text-white"
           // color="#ffffff"
         />
-      </a>
-      <CircleUserRound
-        className="hidden md:block text-tertiary dark:text-white"
-        size={30}
-      />
+      </Link>
+      <UserButton />
     </div>
   );
 };
