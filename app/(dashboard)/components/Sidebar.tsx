@@ -10,7 +10,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useClerk } from "@clerk/nextjs";
 
 interface SidebarProps {
   openNavigation: boolean;
@@ -22,6 +23,8 @@ const Sidebar: React.FC<SidebarProps> = ({
   toggleNavigation,
 }) => {
   const pathname = usePathname();
+  const { signOut } = useClerk();
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -107,7 +110,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               <details className="group [&_summary::-webkit-details-marker]:hidden">
                 <summary
                   className={`rounded-lg px-4 py-2.5 text-sm flex items-center justify-between gap-2 cursor-pointer ${
-                    pathname === "/settings"
+                    pathname === "/user-profile"
                       ? "bg-primary dark:text-white text-white"
                       : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:text-gray-700"
                   }`}
@@ -135,7 +138,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <ul className="mt-2 space-y-1 px-4">
                   <li>
                     <Link
-                      href="/settings"
+                      href="/user-profile"
                       className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                     >
                       Settings
@@ -143,14 +146,13 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </li>
 
                   <li>
-                    <form action="#">
-                      <button
-                        type="submit"
-                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
-                      >
-                        Logout
-                      </button>
-                    </form>
+                    <button
+                      onClick={() => signOut(() => router.push("/"))}
+                      className="block rounded-lg px-4 py-2 text-sm font-medium 
+                      text-gray-500 hover:bg-gray-100 hover:text-gray-700 w-full text-left"
+                    >
+                      Logout
+                    </button>
                   </li>
                 </ul>
               </details>

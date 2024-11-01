@@ -3,6 +3,7 @@ import { Barlow } from "next/font/google";
 import "./styles/globals.css";
 import ClientLayout from "./components/RootLayoutClient";
 import { ThemeProvider } from "next-themes";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 
@@ -15,19 +16,21 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${barlow.className} antialiased bg-white dark:bg-secondary`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${barlow.className} antialiased bg-white dark:bg-secondary`}
         >
-          <ClientLayout>{children}</ClientLayout>
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ClientLayout>{children}</ClientLayout>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
